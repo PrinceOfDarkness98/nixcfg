@@ -3,9 +3,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.features.desktop.hyprland;
-in {
+in
+{
   options.features.desktop.hyprland.enable = mkEnableOption "hyprland config";
 
   config = mkIf cfg.enable {
@@ -17,7 +19,7 @@ in {
         };
 
         exec-once = [
-          "waybar"
+          # "waybar"
           "hyprpaper"
           "hypridle"
           "wl-paste -p -t text --watch clipman store -P --histpath=\"~/.local/share/clipman-primary.json\""
@@ -73,49 +75,49 @@ in {
           preserve_split = true;
         };
 
-        master = {};
+        master = { };
 
-        gestures = {
-          workspace_swipe = false;
-        };
+        # gestures = {
+        #   workspace_swipe = false;
+        # };
 
         windowrule = [
-          "float, file_progress"
-          "float, confirm"
-          "float, dialog"
-          "float, download"
-          "float, notification"
-          "float, error"
-          "float, splash"
-          "float, confirmreset"
-          "float, title:Open File"
-          "float, title:branchdialog"
-          "float, Lxappearance"
-          "float, Wofi"
-          "float, dunst"
-          "animation none,Wofi"
-          "float,viewnior"
-          "float,feh"
-          "float, pavucontrol-qt"
-          "float, pavucontrol"
-          "float, file-roller"
-          "fullscreen, wlogout"
-          "float, title:wlogout"
-          "fullscreen, title:wlogout"
-          "idleinhibit focus, mpv"
-          "idleinhibit fullscreen, firefox"
-          "float, title:^(Media viewer)$"
-          "float, title:^(Volume Control)$"
-          "float, title:^(Picture-in-Picture)$"
-          "size 800 600, title:^(Volume Control)$"
-          "move 75 44%, title:^(Volume Control)$"
+          # "float, file_progress"
+          # "float, confirm"
+          # "float, dialog"
+          # "float, download"
+          # "float, notification"
+          # "float, error"
+          # "float, splash"
+          # "float, confirmreset"
+          # "float, title:Open File"
+          # "float, title:branchdialog"
+          # "float, Lxappearance"
+          # "float, Wofi"
+          # "float, dunst"
+          # "animation none,Wofi"
+          # "float,viewnior"
+          # "float,feh"
+          # "float, pavucontrol-qt"
+          # "float, pavucontrol"
+          # "float, file-roller"
+          # "fullscreen, wlogout"
+          # "float, title:wlogout"
+          # "fullscreen, title:wlogout"
+          # "idleinhibit focus, mpv"
+          # "idleinhibit fullscreen, firefox"
+          # "float, title:^(Media viewer)$"
+          # "float, title:^(Volume Control)$"
+          # "float, title:^(Picture-in-Picture)$"
+          # "size 800 600, title:^(Volume Control)$"
+          # "move 75 44%, title:^(Volume Control)$"
         ];
 
         "$mainMod" = "SUPER";
 
         bind = [
           "$mainMod, return, exec, kitty -e zellij-ps"
-          "$mainMod, t, exec, kitty -e fish -c 'neofetch; exec fish'"
+          "$mainMod, t, exec, alacritty"
           "$mainMod SHIFT, e, exec, kitty -e zellij_nvim"
           "$mainMod, o, exec, thunar"
           "$mainMod, Escape, exec, wlogout -p layer-shell"

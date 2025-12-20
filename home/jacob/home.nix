@@ -29,6 +29,8 @@
   home.packages = with pkgs; [
     wofi
     kitty
+    alacritty
+    glfw
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
