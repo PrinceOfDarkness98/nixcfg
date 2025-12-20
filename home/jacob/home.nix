@@ -2,7 +2,12 @@
 #
 # home-manager init ./
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -72,6 +77,7 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+    EDITOR = "vim";
   };
 
   # Let Home Manager install and manage itself.

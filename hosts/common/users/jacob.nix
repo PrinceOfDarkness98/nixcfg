@@ -21,7 +21,7 @@
       "kvm"
       "qemu-libvirtd"
     ];
-    packages = [ inputs.home-manager.packages.${pkgs.system}.default ];
+    packages = [ inputs.home-manager.packages.${pkgs.stdenv.hostPlatform.system}.default ];
   };
-  home-manager.jacob = import ../../../home/jacob/${config.networking.hostName};
+  home-manager.users.jacob = import ../../../home/jacob/${config.networking.hostName}.nix;
 }
