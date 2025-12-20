@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+  imports = [
+    ./fish.nix
+    ./fzf.nix
+  ];
   programs.zoxide = {
     enable = true;
   };
