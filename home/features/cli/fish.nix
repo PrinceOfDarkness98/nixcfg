@@ -28,6 +28,7 @@ in
         "ls" = "eza";
         "grep" = "rg";
         "ps" = "procs";
+        "c" = "clear";
       };
     };
   };
