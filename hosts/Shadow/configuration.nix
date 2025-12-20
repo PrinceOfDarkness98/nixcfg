@@ -84,6 +84,8 @@
     pciutils
     zed-editor
     neovim
+    nil
+    nixd
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
