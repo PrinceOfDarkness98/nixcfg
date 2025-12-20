@@ -39,9 +39,9 @@
 
   services.xserver = {
 	enable = true;
+	displayManager.sddm.enable = true;
 	desktopManager.xfce.enable = true;
   };
-  services.displayManager.sddm.enable = true;
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -83,6 +83,7 @@
     curl
     pciutils
     zed-editor
+    neovim
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -130,4 +131,3 @@
   system.stateVersion = "25.11"; # Did you read the comment?
 
 }
-
