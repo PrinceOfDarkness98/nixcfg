@@ -13,5 +13,8 @@
       fzf.enable = true;
       fastfetch.enable = true;
     };
+    desktop = {
+	wayland.enable = true;
+    };
   };
 }
