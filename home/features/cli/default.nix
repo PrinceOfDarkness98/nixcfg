@@ -14,7 +14,7 @@
   };
   programs.bat.enable = true;
 
-  home.packges = with pkgs; [
+  home.packages = with pkgs; [
     coreutils
     fd
     btop
