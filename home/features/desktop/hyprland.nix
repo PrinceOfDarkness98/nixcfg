@@ -44,8 +44,8 @@ in
           gaps_in = 5;
           gaps_out = 5;
           border_size = 1;
-          "col.active_border" = "rgba(9742b5ee) rgba(9742b5ee) 45deg";
-          "col.inactive_border" = "rgba(595959aa)";
+          # "col.active_border" = "rgba(9742b5ee) rgba(9742b5ee) 45deg";
+          # "col.inactive_border" = "rgba(595959aa)";
           layout = "dwindle";
         };
 
@@ -126,7 +126,8 @@ in
           "$mainMod, Space, togglefloating"
           "$mainMod, q, killactive"
           "$mainMod, M, exit"
-          "$mainMod, F, fullscreen"
+          "$mainMod SHIFT, F, fullscreen"
+          "$mainMod, F, exec, alacritty -e yazi"
           "$mainMod, V, togglefloating"
           # "$mainMod, D, exec, wofi --show drun --allow-images"
           "$mainMod, D, exec, dms ipc call spotlight toggle"

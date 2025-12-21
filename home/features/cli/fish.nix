@@ -16,11 +16,14 @@ in
       loginShellInit = ''
         set -x NIX_PATH nixpkgs=channel:nixos-unstable
         set -x NIX_LOG info
-        set -x TERMINAL kitty
+        set -x TERMINAL alacritty
 
         if test (tty) = "/dev/tty1"
         exec Hyprland &> /dev/null
         end
+      '';
+      interactiveShellInit = ''
+        set -gx EDITOR nvim
       '';
       shellAbbrs = {
         ".." = "cd ..";

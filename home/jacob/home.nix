@@ -70,6 +70,7 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+    EDITOR = "neovim";
   };
 
   # Let Home Manager install and manage itself.

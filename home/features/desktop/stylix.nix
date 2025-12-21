@@ -17,6 +17,7 @@ in
     stylix = {
       enable = true;
       image = ./wallpapers/Mokka-tree.jpg;
+      polarity = "dark";
     };
   };
 }
