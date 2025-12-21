@@ -1,6 +1,6 @@
 {
+  config,
   inputs,
-  pkgs,
   lib,
   ...
 }:
@@ -9,12 +9,14 @@ let
   cfg = config.features.desktop.stylix;
 in
 {
+  imports = [ inputs.stylix.homeModules.stylix ];
+
   options.features.desktop.stylix.enable = mkEnableOption "enable stylix";
 
   config = mkIf cfg.enable {
     stylix = {
       enable = true;
-      image = ../../../../../wallpapers/Mokka-tree.jpg;
+      image = /home/jacob/wallpapers/Mokka-tree.jpg;
     };
   };
 }

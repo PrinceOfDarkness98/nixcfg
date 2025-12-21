@@ -64,6 +64,7 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             ./home/jacob/Shadow.nix
+            stylix.homeModules.stylix
           ];
         };
       };
