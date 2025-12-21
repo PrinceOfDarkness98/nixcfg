@@ -17,20 +17,20 @@
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    dotfiles = {
-      url = "git+https://code.m3tam3re.com/m3tam3re/dotfiles-flake-demo.git";
-      flake = false;
     };
   };
 
   outputs =
     {
       self,
-      dotfiles,
+      stylix,
       home-manager,
       nixpkgs,
       ...
@@ -52,7 +52,10 @@
       nixosConfigurations = {
         Shadow = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/Shadow ];
+          modules = [
+            ./hosts/Shadow
+            stylix.nixosModules.stylix
+          ];
         };
       };
       homeConfigurations = {
