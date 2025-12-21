@@ -33,6 +33,10 @@
         "5, monitor:HDMI-A-1"
         "6, monitor:HDMI-A-1"
       ];
+      cursor = {
+        no_hardware_cursors = true;
+        no_warps = false;
+      };
     };
   };
 }

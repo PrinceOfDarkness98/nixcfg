@@ -28,9 +28,10 @@ in
         env = [
           "XCURSOR_SIZE,32"
           "WLR_NO_HARDWARE_CURSORS,1"
-          "GTK_THEME,Dracula"
-          "XDG_SESSION_TYPE,x11"
-          "GDK_BACKEND,x11"
+          "GTK_THEME,Adwaita:dark"
+          "XDG_CURRENT_DESKTOP,Hyprland"
+          "XDG_SESSION_TYPE,wayland"
+          "XDG_SESSION_DESKTOP,Hyprland"
         ];
 
         input = {
