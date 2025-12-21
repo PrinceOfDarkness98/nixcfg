@@ -16,6 +16,8 @@ in
       fira-code
       fira-code-symbols
       nerd-font.fira-code-nerdfont
+      nerd-font.jetbrains-mono
+      nerd-font.iosevka
       font-manager
       font-awesome_5
       noto-fonts

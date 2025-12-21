@@ -1,10 +1,12 @@
 {
-  inputs,
+  pkgs,
   ...
 }:
 {
-  home.file.".config/nvim" = {
-    source = "${inputs.dotfiles}/nvim";
-    recursive = true;
-  };
+  home.packages = with pkgs; [
+    lazygit
+    tree-sitter
+    curl
+    gcc
+  ];
 }
