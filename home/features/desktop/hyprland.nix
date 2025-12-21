@@ -29,6 +29,8 @@ in
           "XCURSOR_SIZE,32"
           "WLR_NO_HARDWARE_CURSORS,1"
           "GTK_THEME,Dracula"
+          "XDG_SESSION_TYPE,x11"
+          "GDK_BACKEND,x11"
         ];
 
         input = {
@@ -116,9 +118,8 @@ in
         "$mainMod" = "SUPER";
 
         bind = [
-          "$mainMod, return, exec, kitty -e zellij-ps"
+          "$mainMod, return, exec, kitty"
           "$mainMod, t, exec, alacritty"
-          "$mainMod SHIFT, e, exec, kitty -e zellij_nvim"
           "$mainMod, o, exec, thunar"
           "$mainMod, Escape, exec, wlogout -p layer-shell"
           "$mainMod, Space, togglefloating"
@@ -126,7 +127,10 @@ in
           "$mainMod, M, exit"
           "$mainMod, F, fullscreen"
           "$mainMod, V, togglefloating"
-          "$mainMod, D, exec, wofi --show drun --allow-images"
+          # "$mainMod, D, exec, wofi --show drun --allow-images"
+          "$mainMod, D, exec, dms ipc call spotlight toggle"
+          "$mainMod, Y, exec, dms ipc call dankdash wallpaper"
+          "$mainMod, comma, exec, dms ipc call settings focusOrToggle"
           "$mainMod SHIFT, S, exec, bemoji"
           "$mainMod, P, exec, wofi-pass"
           "$mainMod SHIFT, P, pseudo"
