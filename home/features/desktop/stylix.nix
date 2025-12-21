@@ -16,7 +16,7 @@ in
   config = mkIf cfg.enable {
     stylix = {
       enable = true;
-      image = ./wallpapers/Mokka-tree.jpg;
+      image = ./wallpapers/37.png;
       polarity = "dark";
     };
   };

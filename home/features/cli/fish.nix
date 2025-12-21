@@ -24,6 +24,7 @@ in
       '';
       interactiveShellInit = ''
         set -gx EDITOR nvim
+        fastfetch
       '';
       shellAbbrs = {
         ".." = "cd ..";
