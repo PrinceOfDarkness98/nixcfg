@@ -35,6 +35,7 @@
     telegram-desktop
     nodejs
     graphite-cli
+    tree-sitter
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

@@ -18,14 +18,19 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
     hyprland = {
-        url = "github:hyprwm/Hyprland";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    dotfiles = {
+      url = "git+https://code.m3tam3re.com/m3tam3re/dotfiles-flake-demo.git";
+      flake = false;
     };
   };
 
   outputs =
     {
       self,
+      dotfiles,
       home-manager,
       nixpkgs,
       ...
