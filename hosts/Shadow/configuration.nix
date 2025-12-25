@@ -86,6 +86,7 @@
     neovim
     nil
     nixd
+    caligula
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
