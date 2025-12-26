@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, inputs, ... }:
 {
   imports = [
     ./home.nix
@@ -6,6 +6,7 @@
     ../features/cli
     ../features/desktop
     ./dotfiles
+    inputs.nix-monitor.homeManagerModules.default
   ];
 
   features = {
@@ -41,5 +42,13 @@
         no_warps = false;
       };
     };
+  };
+  programs.nix-monitor = {
+    enable = true;
+    rebuildCommand = [
+      "bash"
+      "-c"
+      "cd ~/projects/nixcfg && sudo nixos-rebuild switch --flake .#Shadow"
+    ];
   };
 }

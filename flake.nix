@@ -25,6 +25,10 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-monitor = {
+      url = "github:antonjah/nix-monitor";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -65,6 +69,7 @@
           modules = [
             ./home/jacob/Shadow.nix
             stylix.homeModules.stylix
+            inputs.nix-monitor.homeManagerModules.default
           ];
         };
       };

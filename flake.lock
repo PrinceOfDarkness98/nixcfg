@@ -552,6 +552,21 @@
         "type": "github"
       }
     },
+    "nix-monitor": {
+      "locked": {
+        "lastModified": 1766244099,
+        "narHash": "sha256-PotQG3LnS8LsOnsHtyS5MFBw0qbRvr3886+3nzxL6R4=",
+        "owner": "antonjah",
+        "repo": "nix-monitor",
+        "rev": "bd941a0e71b8f7763b45c22281a44ff554f82666",
+        "type": "github"
+      },
+      "original": {
+        "owner": "antonjah",
+        "repo": "nix-monitor",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1766070988,
@@ -636,6 +651,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "hyprland": "hyprland",
+        "nix-monitor": "nix-monitor",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
         "stylix": "stylix"
