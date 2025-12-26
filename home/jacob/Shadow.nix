@@ -20,6 +20,7 @@
       hyprland.enable = true;
       fonts.enable = true;
       stylix.enable = true;
+      niri.enable = true;
     };
   };
 

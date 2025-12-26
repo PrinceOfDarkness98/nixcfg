@@ -10,6 +10,7 @@
     ./hyprland.nix
     ./fonts.nix
     ./stylix.nix
+    ./niri.nix
   ];
 
   home.packages = with pkgs; [

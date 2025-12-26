@@ -1,6 +1,8 @@
 {
   config,
   lib,
+  inputs,
+  pkgs,
   ...
 }:
 with lib;
@@ -13,6 +15,9 @@ in
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       enable = true;
+      plugins = [
+        inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprscrolling
+      ];
       settings = {
         xwayland = {
           force_zero_scaling = true;
@@ -46,7 +51,7 @@ in
           border_size = 1;
           # "col.active_border" = "rgba(9742b5ee) rgba(9742b5ee) 45deg";
           # "col.inactive_border" = "rgba(595959aa)";
-          layout = "dwindle";
+          layout = "scrolling";
         };
 
         decoration = {
@@ -79,6 +84,8 @@ in
         };
 
         master = { };
+
+        scrolling = { };
 
         # gestures = {
         #   workspace_swipe = false;

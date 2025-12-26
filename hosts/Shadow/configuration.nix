@@ -25,6 +25,12 @@
 
   security.sudo.wheelNeedsPassword = false;
 
+  nix.settings = {
+    substituters = [ "https://hyprland.cachix.org" ];
+    trusted-substituters = [ "https://hyprland.cachix.org" ];
+    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+  };
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
