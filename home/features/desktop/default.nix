@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   pkgs,
   ...
 }:
@@ -11,10 +9,11 @@
     ./fonts.nix
     ./stylix.nix
     ./niri.nix
-    ./helium.nix
   ];
 
   home.packages = with pkgs; [
-
+    wezterm
+    tmux
+    zellij
   ];
 }
