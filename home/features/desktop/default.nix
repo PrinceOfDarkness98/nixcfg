@@ -1,5 +1,6 @@
 {
   pkgs,
+  inputs,
   ...
 }:
 {
@@ -15,5 +16,6 @@
     wezterm
     tmux
     zellij
+    inputs.zen-browser.packages."${stdenv.hostPlatform.system}".default
   ];
 }

@@ -17,6 +17,7 @@
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,60 +39,63 @@
     };
   };
 
-  outputs = {
-    self,
-    stylix,
-    home-manager,
-    nixpkgs,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
-    systems = [
-      "aarch64-linux"
-      "i686-linux"
-      "x86_64-linux"
-      "aarch64-darwin"
-      "x86_64-darwin"
-    ];
-    forAllSystems = nixpkgs.lib.genAttrs systems;
-  in {
-    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-    overlays = import ./overlays {inherit inputs;};
-    nixosConfigurations = {
-      Shadow = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [
-          ./hosts/Shadow
-          stylix.nixosModules.stylix
-        ];
+  outputs =
+    {
+      self,
+      stylix,
+      home-manager,
+      nixpkgs,
+      ...
+    }@inputs:
+    let
+      inherit (self) outputs;
+      systems = [
+        "aarch64-linux"
+        "i686-linux"
+        "x86_64-linux"
+        "aarch64-darwin"
+        "x86_64-darwin"
+      ];
+      forAllSystems = nixpkgs.lib.genAttrs systems;
+    in
+    {
+      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+      overlays = import ./overlays { inherit inputs; };
+      nixosConfigurations = {
+        Shadow = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/Shadow
+            stylix.nixosModules.stylix
+          ];
+        };
+        LShadow = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/LShadow
+            stylix.nixosModules.stylix
+          ];
+        };
       };
-      LShadow = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [
-          ./hosts/LShadow
-          stylix.nixosModules.stylix
-        ];
+      homeConfigurations = {
+        "jacob@Shadow" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [
+            ./home/jacob/Shadow.nix
+            stylix.homeModules.stylix
+            inputs.nix-monitor.homeManagerModules.default
+          ];
+        };
+        "jacob@LShadow" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [
+            ./home/jacob/LShadow.nix
+            stylix.homeModules.stylix
+            inputs.nix-monitor.homeManagerModules.default
+          ];
+        };
       };
     };
-    homeConfigurations = {
-      "jacob@Shadow" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."x86_64-linux";
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [
-          ./home/jacob/Shadow.nix
-          stylix.homeModules.stylix
-          inputs.nix-monitor.homeManagerModules.default
-        ];
-      };
-      "jacob@LShadow" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."x86_64-linux";
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [
-          ./home/jacob/LShadow.nix
-          stylix.homeModules.stylix
-          inputs.nix-monitor.homeManagerModules.default
-        ];
-      };
-    };
-  };
 }
