@@ -20,6 +20,7 @@ in
 
         if test (tty) = "/dev/tty1"
         exec Hyprland &> /dev/null
+        # exec niri &> /dev/null
         end
       '';
       interactiveShellInit = ''
